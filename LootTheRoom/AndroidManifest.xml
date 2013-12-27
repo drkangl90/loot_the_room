@@ -13,23 +13,26 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name="com.toastercat.loottheroom.GameActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_game"
-            android:theme="@style/FullscreenTheme" 
-            android:screenOrientation="landscape" >
-        </activity>
+        
         <activity
             android:name="com.toastercat.loottheroom.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_main"
-            android:theme="@style/FullscreenTheme" >
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name="com.toastercat.loottheroom.GameActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black.NoTitleBar"
+            android:screenOrientation="landscape" >
+        </activity>
+        
     </application>
 
 </manifest>

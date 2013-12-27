@@ -1,4 +1,4 @@
-package com.toastercat.loottheroom.util;
+package com.toastercat.loottheroom.fullscreen;
 
 import android.app.Activity;
 import android.os.Build;

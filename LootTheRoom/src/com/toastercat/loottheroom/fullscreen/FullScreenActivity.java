@@ -1,6 +1,8 @@
-package com.toastercat.loottheroom;
+package com.toastercat.loottheroom.fullscreen;
 
-import com.toastercat.loottheroom.util.SystemUiHider;
+import com.toastercat.loottheroom.R;
+import com.toastercat.loottheroom.R.id;
+import com.toastercat.loottheroom.R.layout;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
