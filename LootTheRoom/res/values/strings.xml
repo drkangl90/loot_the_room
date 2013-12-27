@@ -8,5 +8,6 @@
     <string name="title_activity_game">GameActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="launch_game">Launch Game</string>
+    <string name="pause_button">Pause</string>
 
 </resources>

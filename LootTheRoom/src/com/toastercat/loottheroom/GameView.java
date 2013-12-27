@@ -31,20 +31,28 @@ public class GameView extends View
 		int screen_width  = canvas.getWidth();
 		int screen_height = canvas.getHeight();
 		
-		this.brush.setColor(Color.rgb(0, 0, 0));
-		canvas.drawRect(0, 0, screen_width, screen_height, this.brush);
-		
-		this.brush.setColor(Color.rgb(0, 200, 0));
-		canvas.drawRect(0,  0, 10, screen_height, this.brush);
-		/*if (this.model != null)
+		if (this.model == null)
 		{
+			this.brush.setColor(Color.rgb(16, 0, 0));
+			canvas.drawRect(0, 0, screen_width, screen_height, this.brush);
 			
-		}*/
+			this.brush.setColor(Color.rgb(200, 200, 200));
+			canvas.drawText("Loading...", 25, 25, this.brush);
+		}
+		else
+		{
+			this.brush.setColor(Color.rgb(0, 0, 0));
+			canvas.drawRect(0, 0, screen_width, screen_height, this.brush);
+			
+			this.brush.setColor(Color.rgb(0, 200, 0));
+			canvas.drawRect(0,  0, 10, screen_height, this.brush);
+		}
 	}
 	
-	public void addModel(GameModel model)
+	public void setModel(GameModel model)
 	{
 		this.model = model;
+		this.model.addObserver(this);
 	}
 	
 	@Override

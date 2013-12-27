@@ -11,16 +11,13 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- * 
- * @see SystemUiHider
- */
+
 public class GameActivity extends Activity
 {
 	private GameView  view;
 	private GameModel model;
+	
+	SystemUiHider mSystemUiHider;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -28,5 +25,26 @@ public class GameActivity extends Activity
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_game);
+		
+		this.view = (GameView) this.findViewById(R.id.game_view);
+		this.model = new GameModel();
+		
+		// Link Model and View
+		this.view.setModel(this.model);
+		
+		mSystemUiHider = SystemUiHider.getInstance(this, this.view, SystemUiHider.FLAG_FULLSCREEN);
+	}
+	
+	@Override
+	protected void onPostCreate(Bundle savedInstanceState)
+	{
+		super.onPostCreate(savedInstanceState);
+		
+		//this.mSystemUiHider.toggle();
+	}
+	
+	public void pauseGame(View v)
+	{
+		this.mSystemUiHider.toggle();
 	}
 }
