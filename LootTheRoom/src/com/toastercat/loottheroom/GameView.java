@@ -4,8 +4,11 @@ import java.util.Observable;
 import java.util.Observer;
 
 import com.toastercat.loottheroom.game.GameModel;
+import com.toastercat.loottheroom.game.GameObject;
+import com.toastercat.loottheroom.game.WorldCoordinate;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -41,12 +44,29 @@ public class GameView extends View
 		}
 		else
 		{
+			// Default Backdrop (Black)
 			this.brush.setColor(Color.rgb(0, 0, 0));
 			canvas.drawRect(0, 0, screen_width, screen_height, this.brush);
 			
+			// Test, test, Motherfucker?
+			GameObject object = new GameObject();
+			this.drawObject(object, canvas);
+			
+			// Health Bar
 			this.brush.setColor(Color.rgb(0, 200, 0));
 			canvas.drawRect(0,  0, 10, screen_height, this.brush);
 		}
+	}
+	
+	private void drawObject(GameObject object, Canvas canvas)
+	{
+		WorldCoordinate loc = object.getLocation();
+		Bitmap sprite = object.getGraphic().getSprite();
+		
+		this.brush.setColor(Color.rgb(200, 200, 200));
+		String coord = "(" + loc.getX() + ", " + loc.getY() + ", " + loc.getZ() + ")";
+		canvas.drawText(coord, loc.getX() + 25, loc.getY() + 25, this.brush);
+		canvas.drawBitmap(sprite, loc.getX(), loc.getY(), this.brush);
 	}
 	
 	public void setModel(GameModel model)

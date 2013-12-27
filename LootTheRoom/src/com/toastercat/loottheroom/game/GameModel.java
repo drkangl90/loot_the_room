@@ -6,6 +6,7 @@ import com.toastercat.loottheroom.utilities.GameState;
 
 public class GameModel extends Observable
 {
+	private GameCamera camera = null;
 	private GameState state = null;
 	private Realm realm = null;
 	

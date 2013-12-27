@@ -4,16 +4,16 @@ import com.toastercat.loottheroom.graphics.GraphicsObject;
 
 public class GameObject
 {
-	private WorldCoordinate location;
-	private GraphicsObject graphic;
+	private WorldCoordinate location = null;
+	private GraphicsObject graphic = null;
 	
-	private boolean visible;
-	private boolean tangible;
+	private boolean visible  = false;
+	private boolean tangible = false;
 	
 	public GameObject()
 	{
-		this.visible = true;
-		this.tangible = true;
+		this.location = new WorldCoordinate(0, 0, 0);
+		this.graphic = new GraphicsObject();
 	}
 
 	//~ ACCESSORS =============================================== ~//
