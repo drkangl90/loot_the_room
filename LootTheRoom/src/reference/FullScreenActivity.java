@@ -1,4 +1,4 @@
-package com.toastercat.loottheroom.fullscreen;
+package reference;
 
 import com.toastercat.loottheroom.R;
 import com.toastercat.loottheroom.R.id;

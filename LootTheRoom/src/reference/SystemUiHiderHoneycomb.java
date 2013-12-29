@@ -1,4 +1,4 @@
-package com.toastercat.loottheroom.fullscreen;
+package reference;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
