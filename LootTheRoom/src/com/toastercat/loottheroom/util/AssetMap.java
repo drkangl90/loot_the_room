@@ -1,4 +1,4 @@
-package com.toastercat.loottheroom.utilities;
+package com.toastercat.loottheroom.util;
 
 import java.io.IOException;
 import java.util.HashMap;

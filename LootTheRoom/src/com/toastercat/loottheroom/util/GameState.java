@@ -1,4 +1,4 @@
-package com.toastercat.loottheroom.utilities;
+package com.toastercat.loottheroom.util;
 
 public enum GameState {
 	INITIALIZE,

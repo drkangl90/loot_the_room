@@ -1,6 +1,6 @@
 package com.toastercat.loottheroom.graphics;
 
-import com.toastercat.loottheroom.utilities.AssetMap;
+import com.toastercat.loottheroom.util.AssetMap;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;

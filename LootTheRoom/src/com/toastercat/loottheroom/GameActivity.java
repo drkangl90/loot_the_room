@@ -3,7 +3,7 @@ package com.toastercat.loottheroom;
 import java.io.IOException;
 
 import com.toastercat.loottheroom.game.GameModel;
-import com.toastercat.loottheroom.utilities.AssetMap;
+import com.toastercat.loottheroom.util.AssetMap;
 
 import android.app.Activity;
 import android.content.res.AssetManager;
