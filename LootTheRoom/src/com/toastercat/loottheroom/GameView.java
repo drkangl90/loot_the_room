@@ -6,6 +6,7 @@ import java.util.Observer;
 import com.toastercat.loottheroom.game.GameModel;
 import com.toastercat.loottheroom.game.GameObject;
 import com.toastercat.loottheroom.game.WorldCoordinate;
+import com.toastercat.loottheroom.graphics.Sprite;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -50,7 +51,7 @@ public class GameView extends View
 			
 			// Test, test, Motherfucker?
 			GameObject object = new GameObject();
-			this.drawObject(object, canvas);
+			this.drawObject(this.model.testObject, canvas);
 			
 			// Health Bar
 			this.brush.setColor(Color.rgb(0, 200, 0));
@@ -61,12 +62,22 @@ public class GameView extends View
 	private void drawObject(GameObject object, Canvas canvas)
 	{
 		WorldCoordinate loc = object.getLocation();
-		Bitmap sprite = object.getGraphic().getSprite();
+		Sprite sprite = object.getGraphic().getSprite();
 		
+		float x = loc.getX();
+		float y = loc.getY();
+		
+		// BG Rect
+		this.brush.setColor(sprite.getColor());
+		canvas.drawRect(x, y, x + object.objectWidth, y + object.objectDepth, this.brush);
+		
+		// Coordinate
 		this.brush.setColor(Color.rgb(200, 200, 200));
-		String coord = "(" + loc.getX() + ", " + loc.getY() + ", " + loc.getZ() + ")";
-		canvas.drawText(coord, loc.getX() + 25, loc.getY() + 25, this.brush);
-		canvas.drawBitmap(sprite, loc.getX(), loc.getY(), this.brush);
+		String coord = "(" + x + ", " + y + ", " + loc.getZ() + ")";
+		canvas.drawText(coord, x, y, this.brush);
+		
+		// Image
+		canvas.drawBitmap(sprite.getImage(), loc.getX(), loc.getY(), this.brush);
 	}
 	
 	public void setModel(GameModel model)

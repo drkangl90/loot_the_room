@@ -2,8 +2,6 @@ package com.toastercat.loottheroom.graphics;
 
 import com.toastercat.loottheroom.utilities.AssetMap;
 
-import android.graphics.Bitmap;
-
 public class GraphicsObject
 {
 	//- Constants ----------------------------------------=
@@ -17,15 +15,12 @@ public class GraphicsObject
 	float objectDepth  = 0.0f; // delta-y
 	float objectHeight = 0.0f; // delta-z	
 	
-	private Bitmap sprite;
+	private Sprite sprite;
 	
 	public GraphicsObject()
 	{
-		this.sprite = AssetMap.getImage(DEFAULT_IMAGE);
+		this.sprite = new Sprite(DEFAULT_IMAGE);
 	}
 	
-	public Bitmap getSprite() 
-	{
-		return this.sprite;
-	}
+	public Sprite getSprite() { return this.sprite; }
 }

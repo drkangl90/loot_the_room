@@ -10,6 +10,10 @@ public class GameObject
 	private boolean visible  = false;
 	private boolean tangible = false;
 	
+	public float objectWidth  = 0.0f; // delta-x
+	public float objectDepth  = 0.0f; // delta-y
+	public float objectHeight = 0.0f; // delta-z
+	
 	public GameObject()
 	{
 		this.location = new WorldCoordinate(0, 0, 0);

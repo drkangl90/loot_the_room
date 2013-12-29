@@ -20,11 +20,9 @@ public class GameActivity extends Activity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-
 		setContentView(R.layout.activity_game);
 		
 		this.view = (GameView) this.findViewById(R.id.game_view);
-		this.model = new GameModel();
 		
 		try
 		{
@@ -34,6 +32,7 @@ public class GameActivity extends Activity
 		{
 			e.printStackTrace();
 		}
+		this.model = new GameModel();
 		
 		// Link Model and View
 		// (Do this AFTER ALL INITIALIZATION)
