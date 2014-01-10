@@ -14,7 +14,7 @@ public class GameModel extends Observable
 	
 	private QuadTree<GameObject> roster = null;
 	
-	public GameObject testObject = null;
+	public Actor testActor = null;
 	
 	public GameModel() 
 	{
@@ -23,10 +23,10 @@ public class GameModel extends Observable
 		this.state = GameState.INITIALIZE;
 		this.roster = new SectorTree<GameObject>();
 		
-		this.testObject = new GameObject();
-		this.testObject.setSize(300.0f, 100.0f, 0.0f);
+		this.testActor = new Actor();
+		this.testActor.setSize(300.0f, 100.0f, 0.0f);
 		//this.testObject.objectWidth = 200.0f;
 		//this.testObject.objectDepth = 200.0f;
-		this.testObject.setLocation(150, 100, 0);
+		this.testActor.setLocation(150, 100, 0);
 	}
 }

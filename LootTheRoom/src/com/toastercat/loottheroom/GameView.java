@@ -50,36 +50,12 @@ public class GameView extends View
 			canvas.drawRect(0, 0, screen_width, screen_height, this.brush);
 			
 			// Test, test, Motherfucker?
-			this.drawObject(this.model.testObject, canvas);
+			this.model.testActor.draw2D(canvas, this.brush);
 			
 			// Health Bar
 			this.brush.setColor(Color.rgb(0, 200, 0));
 			canvas.drawRect(0,  0, 10, screen_height, this.brush);
 		}
-	}
-	
-	private void drawObject(GameObject object, Canvas canvas)
-	{
-		WorldCoordinate loc = object.getLocation();
-		Sprite sprite = object.getGraphic().getSprite();
-		
-		float x = loc.getX();
-		float y = loc.getY();
-		
-		float w = object.getObjectWidth();
-		float d = object.getObjectDepth();
-		
-		// BG Rect
-		this.brush.setColor(sprite.getColor());
-		canvas.drawRect(x, y, x + w, y + d, this.brush);
-		
-		// Coordinate
-		this.brush.setColor(Color.rgb(200, 200, 200));
-		String coord = "(" + x + ", " + y + ", " + loc.getZ() + ")";
-		canvas.drawText(coord, x, y, this.brush);
-		
-		// Image
-		canvas.drawBitmap(sprite.getImage(), loc.getX(), loc.getY(), this.brush);
 	}
 	
 	public void setModel(GameModel model)
