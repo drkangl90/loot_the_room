@@ -10,14 +10,22 @@ public class GameObject
 	private boolean visible  = false;
 	private boolean tangible = false;
 	
-	public float objectWidth  = 0.0f; // delta-x
-	public float objectDepth  = 0.0f; // delta-y
-	public float objectHeight = 0.0f; // delta-z
+	private float objectWidth  = 0.0f; // delta-x
+	private float objectDepth  = 0.0f; // delta-y
+	private float objectHeight = 0.0f; // delta-z
 	
 	public GameObject()
 	{
 		this.location = new WorldCoordinate(0, 0, 0);
-		this.graphic = new GraphicsObject();
+		this.graphic = new GraphicsObject(1, 1, 1);
+	}
+	
+	public void setSize(float width, float depth, float height)
+	{
+		this.objectWidth = width;
+		this.objectDepth = depth;
+		this.objectHeight = height;
+		this.graphic = new GraphicsObject(width, depth, height);
 	}
 
 	//~ ACCESSORS =============================================== ~//
@@ -36,4 +44,13 @@ public class GameObject
 	//- Tangible -----------------------------------------=
 	public boolean isTangible() { return tangible; }
 	public void setTangible(boolean isTangible) { this.tangible = isTangible; }
+	//- Width -------------------------------------------=
+	public float getObjectWidth() { return objectWidth; }
+	public void setObjectWidth(float w) { this.objectWidth = w; }
+	//- Depth -------------------------------------------=
+	public float getObjectDepth() { return objectDepth; }
+	public void setObjectDepth(float d) { this.objectDepth = d; }
+	//- Height -------------------------------------------=
+	public float getObjectHeight() { return objectHeight; }
+	public void setObjectHeight(float h) { this.objectHeight = h; }
 }

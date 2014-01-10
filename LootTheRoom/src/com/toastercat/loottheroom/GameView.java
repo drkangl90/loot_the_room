@@ -50,7 +50,6 @@ public class GameView extends View
 			canvas.drawRect(0, 0, screen_width, screen_height, this.brush);
 			
 			// Test, test, Motherfucker?
-			GameObject object = new GameObject();
 			this.drawObject(this.model.testObject, canvas);
 			
 			// Health Bar
@@ -67,9 +66,12 @@ public class GameView extends View
 		float x = loc.getX();
 		float y = loc.getY();
 		
+		float w = object.getObjectWidth();
+		float d = object.getObjectDepth();
+		
 		// BG Rect
 		this.brush.setColor(sprite.getColor());
-		canvas.drawRect(x, y, x + object.objectWidth, y + object.objectDepth, this.brush);
+		canvas.drawRect(x, y, x + w, y + d, this.brush);
 		
 		// Coordinate
 		this.brush.setColor(Color.rgb(200, 200, 200));

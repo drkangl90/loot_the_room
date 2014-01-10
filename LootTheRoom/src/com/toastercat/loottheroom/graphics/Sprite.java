@@ -10,9 +10,11 @@ public class Sprite
 	private Bitmap image = null;
 	private int  color;
 	
-	public Sprite(String imageKey)
+	public Sprite(String imageKey, int sizeX, int sizeY)
 	{
-		this.image = AssetMap.getImage(imageKey);
+		Bitmap b = AssetMap.getImage(imageKey);
+		this.image = Bitmap.createScaledBitmap(b, sizeX, sizeY, false);
+		
 		this.color = Color.rgb(64, 64, 64);
 	}
 	
