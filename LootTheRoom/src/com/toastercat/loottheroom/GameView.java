@@ -14,6 +14,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 public class GameView extends View
@@ -50,7 +51,8 @@ public class GameView extends View
 			canvas.drawRect(0, 0, screen_width, screen_height, this.brush);
 			
 			// Test, test, Motherfucker?
-			this.model.testActor.draw2D(canvas, this.brush);
+			this.model.prettyActor.draw2D(canvas, this.brush, this.model.getCamera());
+			this.model.boringActor.draw2D(canvas, this.brush, null);
 			
 			// Health Bar
 			this.brush.setColor(Color.rgb(0, 200, 0));
@@ -68,5 +70,32 @@ public class GameView extends View
 	public void update(Observable arg0, Object arg1)
 	{
 		this.postInvalidate();
+	}
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent e) 
+	{
+		int p = e.getPointerCount();
+		switch (e.getAction()) {
+			case MotionEvent.ACTION_DOWN:
+				switch(p) {
+					case 1:
+						this.model.getCamera().setLocation(e.getX(), e.getY(), 0);
+						break;
+					default:
+						break;
+				}				
+				break;
+			case MotionEvent.ACTION_MOVE:  
+				switch(p) {
+					case 1:
+						this.model.getCamera().setLocation(e.getX(), e.getY(), 0);
+						break;
+					default:
+						break;
+				}				
+				break;
+			}
+		return true;
 	}
 }

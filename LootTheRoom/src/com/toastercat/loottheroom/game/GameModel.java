@@ -14,7 +14,8 @@ public class GameModel extends Observable
 	
 	private QuadTree<GameObject> roster = null;
 	
-	public Actor testActor = null;
+	public Actor prettyActor = null;
+	public Actor boringActor = null;
 	
 	public GameModel() 
 	{
@@ -23,10 +24,19 @@ public class GameModel extends Observable
 		this.state = GameState.INITIALIZE;
 		this.roster = new SectorTree<GameObject>();
 		
-		this.testActor = new Actor();
-		this.testActor.setSize(300.0f, 100.0f, 0.0f);
-		//this.testObject.objectWidth = 200.0f;
-		//this.testObject.objectDepth = 200.0f;
-		this.testActor.setLocation(150, 100, 0);
+		this.camera = new GameCamera();
+		
+		this.prettyActor = new Actor();
+		this.prettyActor.setSize(200.0f, 150.0f, 0.0f);
+		this.prettyActor.setLocation(450, 400, 0);
+		
+		this.boringActor = new Actor();
 	}
+	
+	public void update()
+	{
+		
+	}
+	
+	public GameCamera getCamera() { return this.camera; }
 }

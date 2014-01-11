@@ -6,4 +6,5 @@ import android.graphics.Paint;
 public interface GameDrawable2D
 {
 	public void draw2D(Canvas canvas, Paint paint);
+	public void draw2D(Canvas canvas, Paint paint, GameCamera camera);
 }

@@ -1,11 +1,9 @@
 package com.toastercat.loottheroom.game;
 
-public class GameCamera
-{
-	private WorldCoordinate location = null;
-	
+public class GameCamera extends GameObject
+{	
 	public GameCamera()
 	{
-		this.location = new WorldCoordinate(0, 0, 100);
+		super();
 	}
 }

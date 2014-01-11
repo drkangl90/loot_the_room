@@ -1,11 +1,8 @@
 package com.toastercat.loottheroom.game;
 
-import com.toastercat.loottheroom.graphics.GraphicsObject;
-
 public class GameObject
 {
 	private WorldCoordinate location = null;
-	private GraphicsObject graphic = null;
 	
 	private float objectWidth  = 0.0f; // delta-x
 	private float objectDepth  = 0.0f; // delta-y
@@ -14,7 +11,6 @@ public class GameObject
 	public GameObject()
 	{
 		this.location = new WorldCoordinate(0, 0, 0);
-		this.graphic = new GraphicsObject(1, 1, 1);
 	}
 	
 	public void setSize(float width, float depth, float height)
@@ -22,14 +18,10 @@ public class GameObject
 		this.objectWidth = width;
 		this.objectDepth = depth;
 		this.objectHeight = height;
-		this.graphic = new GraphicsObject(width, depth, height);
 	}
 
 	//~ ACCESSORS =============================================== ~//
 	//
-	//- Graphic ------------------------------------------=
-	public GraphicsObject getGraphic() { return graphic; }
-	public void setGraphic(GraphicsObject graphic) { this.graphic = graphic; }
 	//- Location -----------------------------------------=
 	public WorldCoordinate getLocation() { return location; }
 	public void setLocation(float x, float y, float z) {
