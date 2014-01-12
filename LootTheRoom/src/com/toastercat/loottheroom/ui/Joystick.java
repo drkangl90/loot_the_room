@@ -6,16 +6,17 @@ import android.graphics.Paint;
 import android.view.MotionEvent;
 
 import com.toastercat.loottheroom.game.Drawable2D;
+import com.toastercat.loottheroom.game.Drawable3D;
 import com.toastercat.loottheroom.game.GameCamera;
 import com.toastercat.loottheroom.game.Touchable;
 
 public class Joystick
-	implements Drawable2D, Touchable
+	implements Drawable2D, Drawable3D, Touchable
 {
-	public static final int DEFAULT_JOYSTICK_RADIUS = 200;
-	public static final int DEFAULT_THUMB_RADIUS    = 75;
+	public static final int DEFAULT_JOYSTICK_RADIUS = 150;
+	public static final int DEFAULT_THUMB_RADIUS    = 50;
 	public static final int DEFAULT_OFFSET_X        = 25;
-	public static final int DEFAULT_OFFSET_Y        = 25;
+	public static final int DEFAULT_OFFSET_Y        = 15;
 	
 	private int joystickRadius = DEFAULT_JOYSTICK_RADIUS;
 	private int thumbRadius    = DEFAULT_THUMB_RADIUS;
@@ -43,20 +44,32 @@ public class Joystick
 		paint.setAlpha(64);
 		canvas.drawCircle(cx, cy, this.joystickRadius, paint);
 		
-		if (this.touchDown)
+		if (! this.touchDown)
 		{
-			paint.setColor(Color.rgb(128, 0, 0));
-			paint.setAlpha(128);
-			paint.setStrokeWidth(4);
-			canvas.drawLine(cx, cy, this.thumbX, this.thumbY, paint);
-			
-			canvas.drawCircle(this.thumbX, this.thumbY, this.thumbRadius, paint);
+			this.thumbX = cx;
+			this.thumbY = cy;
 		}
+		
+		paint.setColor(Color.rgb(128, 0, 0));
+		paint.setAlpha(128);
+		paint.setStrokeWidth(5);
+		canvas.drawLine(cx, cy, this.thumbX, this.thumbY, paint);
+			
+		canvas.drawCircle(this.thumbX, this.thumbY, this.thumbRadius, paint);
+			
+		// Don't forget to be courteous... bitch.
+		paint.reset();
 	}
 	@Override
 	public void draw2D(Canvas canvas, Paint paint, GameCamera camera)
 	{
 		this.draw2D(canvas, paint);
+	}
+	
+	@Override
+	public void draw3D()
+	{
+		// TODO 3D and shit
 	}
 	
 	@Override

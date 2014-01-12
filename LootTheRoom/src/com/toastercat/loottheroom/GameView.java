@@ -57,11 +57,16 @@ public class GameView extends View
 			this.model.prettyActor.draw2D(canvas, this.brush, this.model.getCamera());
 			this.model.boringActor.draw2D(canvas, this.brush, null);
 			
+			//- UI Elements ------------------------------=
+			//
 			// Health Bar
 			this.brush.setColor(Color.rgb(0, 200, 0));
 			canvas.drawRect(0,  0, 10, screen_height, this.brush);
+			//
+			// Joy Stick
+			this.joystick.draw2D(canvas, this.brush);
+			
 		}
-		this.joystick.draw2D(canvas, this.brush);
 	}
 	
 	public void setModel(GameModel model)
