@@ -100,6 +100,9 @@ public class GameView extends View
 				}				
 				break;
 			}
+		
+		this.joystick.onTouch(e);
+		
 		return true;
 	}
 }
