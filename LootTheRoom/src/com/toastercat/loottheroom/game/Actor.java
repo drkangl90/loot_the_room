@@ -8,7 +8,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 
 public class Actor extends GameObject
-	implements GameDrawable2D, GameDrawable3D, GameCollidable
+	implements Drawable2D, Drawable3D, Collidable
 {
 	private GraphicsObject graphic = null;
 	
@@ -30,7 +30,7 @@ public class Actor extends GameObject
 	 * Default collision Behavior
 	 */
 	@Override
-	public void onCollide(GameCollidable other)
+	public void onCollide(Collidable other)
 	{
 		// TODO Auto-generated method stub	
 	}

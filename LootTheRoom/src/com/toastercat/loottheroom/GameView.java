@@ -7,6 +7,7 @@ import com.toastercat.loottheroom.game.GameModel;
 import com.toastercat.loottheroom.game.GameObject;
 import com.toastercat.loottheroom.game.WorldCoordinate;
 import com.toastercat.loottheroom.graphics.Sprite;
+import com.toastercat.loottheroom.ui.Joystick;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -22,12 +23,14 @@ public class GameView extends View
 {
 	private Paint brush = null;
 	private GameModel model = null;
+	private Joystick joystick = null;
 
 	public GameView(Context context, AttributeSet attrs)
 	{
 		super(context, attrs);
 
 		this.brush = new Paint();
+		this.joystick = new Joystick();
 	}
 	
 	@Override
@@ -58,6 +61,7 @@ public class GameView extends View
 			this.brush.setColor(Color.rgb(0, 200, 0));
 			canvas.drawRect(0,  0, 10, screen_height, this.brush);
 		}
+		this.joystick.draw2D(canvas, this.brush);
 	}
 	
 	public void setModel(GameModel model)
@@ -84,7 +88,7 @@ public class GameView extends View
 						break;
 					default:
 						break;
-				}				
+				}
 				break;
 			case MotionEvent.ACTION_MOVE:  
 				switch(p) {

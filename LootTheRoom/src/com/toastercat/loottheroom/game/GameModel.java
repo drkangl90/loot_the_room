@@ -35,7 +35,12 @@ public class GameModel extends Observable
 	
 	public void update()
 	{
+		/*
+		float x = this.prettyActor.getLocation().getX();
+		float y = this.prettyActor.getLocation().getY();
 		
+		this.prettyActor.setLocation(x + 0.3f, y + 0.1f, 0);
+		*/
 	}
 	
 	public GameCamera getCamera() { return this.camera; }
